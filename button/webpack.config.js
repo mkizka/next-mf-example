@@ -1,4 +1,5 @@
 const { ModuleFederationPlugin } = require("webpack").container;
+const { dependencies } = require("./package.json");
 
 module.exports = {
   mode: "development",
@@ -16,6 +17,11 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./Button": "./src/index",
+      },
+      shared: {
+        react: {
+          requiredVersion: dependencies.react,
+        },
       },
     }),
   ],
