@@ -1,8 +1,13 @@
+const path = require("path");
 const { ModuleFederationPlugin } = require("webpack").container;
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { dependencies } = require("./package.json");
 
 module.exports = {
   mode: "development",
+  output: {
+    path: path.resolve("./dist"),
+  },
   module: {
     rules: [
       {
@@ -12,6 +17,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
       name: "button",
       filename: "remoteEntry.js",
@@ -25,7 +31,4 @@ module.exports = {
       },
     }),
   ],
-  devServer: {
-    port: 3001,
-  },
 };
