@@ -4,9 +4,23 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-const Button = dynamic(
+const Button1 = dynamic(
   // @ts-ignore
-  () => import("button/Button"),
+  () => import("button1/Button"),
+  {
+    ssr: false,
+    loading: ({ error }) => {
+      if (error) {
+        return <p>{error.message}</p>;
+      }
+      return <p>loading...</p>;
+    },
+  }
+);
+
+const Button2 = dynamic(
+  // @ts-ignore
+  () => import("button2/Button"),
   {
     ssr: false,
     loading: ({ error }) => {
@@ -32,7 +46,8 @@ const Home: NextPage = () => {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <Button></Button>
+        <Button1></Button1>
+        <Button2></Button2>
 
         <p className={styles.description}>
           Get started by editing{" "}

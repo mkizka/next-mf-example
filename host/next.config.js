@@ -1,5 +1,3 @@
-const { dependencies } = require("./package.json");
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -10,13 +8,8 @@ const nextConfig = {
       ...config.plugins,
       new ModuleFederationPlugin({
         remotes: {
-          button: "button@http://localhost:3001/remoteEntry.js",
-        },
-        shared: {
-          react: {
-            eager: true,
-            requiredVersion: dependencies.react,
-          },
+          button1: "button1@http://localhost:3001/remoteEntry.js",
+          button2: "button2@http://localhost:3002/remoteEntry.js",
         },
       }),
     ];

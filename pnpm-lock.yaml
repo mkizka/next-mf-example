@@ -5,7 +5,30 @@ importers:
   .:
     specifiers: {}
 
-  button:
+  button1:
+    specifiers:
+      '@babel/core': ^7.18.10
+      '@babel/preset-react': ^7.18.6
+      babel-loader: ^8.2.5
+      clean-webpack-plugin: ^4.0.0
+      npm-run-all: ^4.1.5
+      react: 18.2.0
+      serve: ^14.0.1
+      webpack: ^5.74.0
+      webpack-cli: ^4.10.0
+    dependencies:
+      react: 18.2.0
+    devDependencies:
+      '@babel/core': 7.18.10
+      '@babel/preset-react': 7.18.6_@babel+core@7.18.10
+      babel-loader: 8.2.5_xc6oct4hcywdrbo4ned6ytbybm
+      clean-webpack-plugin: 4.0.0_webpack@5.74.0
+      npm-run-all: 4.1.5
+      serve: 14.0.1
+      webpack: 5.74.0_webpack-cli@4.10.0
+      webpack-cli: 4.10.0_webpack@5.74.0
+
+  button2:
     specifiers:
       '@babel/core': ^7.18.10
       '@babel/preset-react': ^7.18.6

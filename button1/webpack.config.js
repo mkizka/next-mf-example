@@ -19,13 +19,14 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
-      name: "button",
+      name: "button1",
       filename: "remoteEntry.js",
       exposes: {
         "./Button": "./src/index",
       },
       shared: {
         react: {
+          singleton: true,
           requiredVersion: dependencies.react,
         },
       },

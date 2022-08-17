@@ -1,5 +1,5 @@
 {
-  "name": "button",
+  "name": "button1",
   "scripts": {
     "dev": "run-p -l watch serve",
     "watch": "webpack watch",
