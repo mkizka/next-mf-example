@@ -1,3 +1,7 @@
 {
-  "name": "next-fe-example"
+  "name": "next-fe-example",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r dev"
+  }
 }
