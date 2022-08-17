@@ -1,3 +1,5 @@
+const { ModuleFederationPlugin } = require("webpack").container;
+
 module.exports = {
   mode: "development",
   module: {
@@ -8,6 +10,15 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "button",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./Button": "./src/index",
+      },
+    }),
+  ],
   devServer: {
     port: 3001,
   },

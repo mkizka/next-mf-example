@@ -1,7 +1,22 @@
 import type { NextPage } from "next";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+
+const Button = dynamic(
+  // @ts-ignore
+  () => import("button/Button"),
+  {
+    ssr: false,
+    loading: ({ error }) => {
+      if (error) {
+        return <p>{error.message}</p>;
+      }
+      return <p>loading...</p>;
+    },
+  }
+);
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +31,8 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <Button></Button>
 
         <p className={styles.description}>
           Get started by editing{" "}
